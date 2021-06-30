@@ -318,4 +318,12 @@ function(nrf5_target exec_target)
   add_custom_target(erase_all
     COMMAND ${NRF5_NRFJPROG} --eraseall -f nrf52 ${nrfjprog_jlink_sn_opt} ${nrfjprog_jlink_sn_arg}
   )
+
+  add_custom_target(openocd DEPENDS hex
+    COMMAND openocd -f interface/stlink.cfg -f target/nrf52.cfg -c init -c "reset init" -c "reset halt" -c "program ${exec_target}.hex verify reset" -c exit
+  )
+
+  add_custom_target(openocd_softdevice DEPENDS hex
+    COMMAND openocd -f interface/stlink.cfg -f target/nrf52.cfg -c init -c "reset halt" -c "program ${local_sd_hex_file_path} verify" -c reset -c exit
+  )
 endfunction()

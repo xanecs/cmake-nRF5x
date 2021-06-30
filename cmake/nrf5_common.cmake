@@ -28,6 +28,8 @@ target_include_directories(nrf5_delay INTERFACE
   "${NRF5_SDK_PATH}/components/libraries/delay"
 )
 list(APPEND NRF5_LIBRARY_NRF5_DELAY_DEPENDENCIES
+  nrf5_nrfx_common
+  nrf5_assert
   nrf5_delay
 )
 

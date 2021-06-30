@@ -33,6 +33,7 @@ target_link_libraries(nrf5_nrfx_common INTERFACE
 )
 list(APPEND NRF5_LIBRARY_NRF5_NRFX_COMMON_DEPENDENCIES
   nrf5_config
+  nrf5_assert
   nrf5_nrfx_common
 )
 

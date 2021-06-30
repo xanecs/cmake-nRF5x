@@ -227,6 +227,12 @@ if(NRF5_SDK_VERSION VERSION_EQUAL 16.0.0)
     "${NRF5_SDK_PATH}/components/libraries/timer/drv_rtc.c"
   )
 endif()
+if(NRF5_SDK_VERSION VERSION_EQUAL 17.0.2)
+  target_sources(nrf5_app_timer_v2 PRIVATE
+    "${NRF5_SDK_PATH}/components/libraries/timer/app_timer2.c"
+    "${NRF5_SDK_PATH}/components/libraries/timer/drv_rtc.c"
+  )
+endif()
 list(APPEND NRF5_LIBRARY_NRF5_APP_TIMER_V2_DEPENDENCIES
   nrf5_app_error
   nrf5_app_scheduler
